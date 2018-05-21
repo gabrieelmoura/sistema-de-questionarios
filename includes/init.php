@@ -6,12 +6,14 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
 
+$dbops = parse_url(getenv('CLEARDB_DATABASE_URL'));
+
 $capsule->addConnection([
     'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'questionarios',
-    'username'  => 'root',
-    'password'  => '',
+    'host'      => $dbops['host'],
+    'database'  => ltrim($dbops['path'],'/'),
+    'username'  => $dbops['user'],
+    'password'  => $dbops['pass'],
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
