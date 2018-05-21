@@ -1,0 +1,11 @@
+{
+    "name": "administrador/questionarios",
+    "autoload": {
+        "psr-4": {
+            "App\\": "class/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^5.6"
+    }
+}
